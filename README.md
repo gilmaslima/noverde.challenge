@@ -106,7 +106,7 @@ A aplicação segue uma divisão por pacotes conforme abaixo:
 
 
 ## Configuração da aplicação
-``src/main/resources``
+``src/main/resources``<br>
 [application-local.properties](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/resources/application-local.properties) - Contém as configurações da aplicação para ser executada localmente:
     
     spring.jpa.hibernate.ddl-auto=create
