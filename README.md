@@ -89,7 +89,7 @@ A aplicação segue uma divisão por pacotes conforme abaixo:
 * ``br.com.noverde.challenge.service`` - Camada de serviço da aplicação.
 [LoanService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/LoanService.java) - Faz a orquestração das chamadas de banco de dados, retorna objeto para o controller e envia objeto loan para processamento assícrono.
 [CreditEngineService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/CreditEngineService.java) - Realiza o processamento de forma assíncrona e orquestra as pipelines do motor de crédito.
-[RestTemplateService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/RestTemplateService.java) - Responsável pela comunicação Rest com a API da noverde.
+[RestTemplateService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/RestTemplateService.java) - Responsável pela comunicação Rest com a API da noverde. Foi utilizado uma configuração de Retry para caso de falha de comunicação entre a aplicação e a API.
 
 * ``br.com.noverde.challenge.service.pipeline`` - Camada com as políticas de validação usadas no motor de crédito.
 [PolicyPipeline](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/pipeline/PolicyPipeline.java) - Interface modelo para as políticas de validação.
