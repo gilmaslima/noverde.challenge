@@ -31,10 +31,13 @@ Cobertura de código:
 ## Camadas da aplicação
 A aplicação segue uma divisão por pacotes conforme abaixo:
 * ``br.com.noverde.challenge`` - pacote raíz da aplicação, classes:
+
 [Application](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/Application.java) - Responsável por iniciar a aplição e o contexto do Spring.
 
 * ``br.com.noverde.challenge.controller`` - nesse pacote estão as classes Rest Controller:
+
 [LoanController](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/controller/LoanController.java)
+
 - método createLoan 
   > disponibiliza o endpoint rest POST /loan
   > requisição de exemplo: 
@@ -72,10 +75,15 @@ A aplicação segue uma divisão por pacotes conforme abaixo:
 
 
 * ``br.com.noverde.challenge.model`` - nesse pacote estão as classes que representam os objetos de request e response:
-[Error](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/Error.java) - Representa o objeto de erro utilizado na resposta 
+
+[Error](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/Error.java) - Representa o objeto de erro utilizado na resposta
+
 [LoanRequest](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/LoanRequest.java) - representa o objeto/json usado na requisição do endpoint POST /loan.
+
 [LoanResponse](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/LoanResponse.java) - representa o objeto usado no retorno da consulta GET /loan/{id}.
+
 [NoverdeRequest](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/NoverdeRequest.java) - representa o objeto/json usado na requisição dos endpoint de consulta (commitment e score).
+
 [NoverdeResponse](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/model/NoverdeResponse.java) - representa o objeto/json de resposta da requisição dos endpoint de consulta (commitment e score).
 
 
@@ -84,24 +92,36 @@ A aplicação segue uma divisão por pacotes conforme abaixo:
 
 
 * ``br.com.noverde.challenge.repository`` - contém os repositórios de acesso ao banco de dados da aplicação:
+
 [LoanRepository](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/repository/LoanRepository.java) - Interface para manipulação da tabela Loan.
 
 * ``br.com.noverde.challenge.service`` - Camada de serviço da aplicação.
+
 [LoanService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/LoanService.java) - Faz a orquestração das chamadas de banco de dados, retorna objeto para o controller e envia objeto loan para processamento assícrono.
+
 [CreditEngineService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/CreditEngineService.java) - Realiza o processamento de forma assíncrona e orquestra as pipelines do motor de crédito.
+
 [RestTemplateService](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/RestTemplateService.java) - Responsável pela comunicação Rest com a API da noverde. Foi utilizado uma configuração de Retry para caso de falha de comunicação entre a aplicação e a API.
 
 * ``br.com.noverde.challenge.service.pipeline`` - Camada com as políticas de validação usadas no motor de crédito.
+
 [PolicyPipeline](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/pipeline/PolicyPipeline.java) - Interface modelo para as políticas de validação.
+
 [AgePolicyPipeline](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/pipeline/AgePolicyPipeline.java) - Responsável pela validação de idade.
+
 [ScorePolicyPipeline](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/pipeline/ScorePolicyPipeline.java) - Responsável pela validação de score.
+
 [CommitmentPolicyPipeline](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/service/pipeline/CommitmentPolicyPipeline.java) - Responsável pela validação/cálculo de juros das parcelas.
 
 
 * ``br.com.noverde.challenge.validation`` - Pacote com os validadores customizados do Json de request.
+
 [AmountConstraint](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/validation/AmountConstraint.java) - Interface annotation usada na validação do campo ``amount`` durante o request da rota /loan.
+
 [AmountValidator](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/validation/AmountValidator.java) - Implementação de ConstraintValidator que é acionada para executar a validação do campo amount.
+
 [TermsConstraint](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/validation/TermsConstraint.java) - Interface annotation usada na validação do campo ``terms`` durante o request da rota /loan.
+
 [TermsValidator](https://github.com/gilmaslima/noverde.challenge/blob/master/src/main/java/br/com/noverde/challenge/validation/TermsValidator.java) - Implementação de ConstraintValidator que é acionada para executar a validação do campo terms.
 
 
